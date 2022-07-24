@@ -2,14 +2,14 @@ import './App.css';
 
 import React, { useEffect, useState } from 'react';
 
-const API_ENDPOINT = 'http://localhost:3000/users';
+// const API_ENDPOINT = 'http://localhost:3000/users';
 
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(API_ENDPOINT)
+    fetch(process.env.API_ENDPOINT)
       .then((res) => res.json())
       .then((parsedData) => { setData(parsedData); setLoading(false); });
   }, []);
